@@ -37,6 +37,7 @@
 
         this.skip = function(direction) {
             var wrapper_width = this_.items_container.width();
+            var item_width = (this_.defaults.auto_adjust) ? (Math.floor(this_.items_container.parent().width() / this_.defaults.number_slides_visible)) : this_.defaults.shift;
 
             // calculate current_left
             if (direction == "next")
@@ -44,8 +45,13 @@
             if (direction == "prev")
                 this_.current_left += this_.defaults.shift;
 
-            if (this_.current_left + (wrapper_width-this_.defaults.shift) < 0) this_.current_left = 0;
-            if (this_.current_left > 0) this_.current_left = -(wrapper_width-this_.defaults.shift);
+            if (this_.current_left + (wrapper_width) <= 0) this_.current_left = 0;
+            if (this_.current_left > 0){
+                var pages_count = Math.ceil(this_.items_count / this_.defaults.scroll);
+                var first_visible = (pages_count-1) * this_.defaults.scroll;
+                var rest = this_.items_count - first_visible
+                this_.current_left = -(wrapper_width - rest * item_width);
+            }
 
             // animation
             this_.carousel_transition(this_.current_left);
