@@ -36,24 +36,32 @@
       </div>
 
       <div class="box about">
-          <p><strong>Authors: </strong>Daniel Sokołowski, Wojciech Kruszewski</p>
+		  <p><strong>Authors: </strong>Daniel Sokołowski, <a href='http://wojciech.oxos.pl'>Wojciech Kruszewski</a></p>
           <p><strong>Repository: </strong>http://github.com/wojciech/carousel</p>
           <p>jQuery Carousele Plugin</p>
 	  <p>Work sponsored by <a href='http://pawky.com'><big><strong>Pawky.com</strong></big> - a short film society</a></p>
-	  <p>Credits: First version was based on: <a href='http://www.agilecarousel.com'>Agile Carousel</a> (now there's hardly no original code left</p>
+	  <p>Credits: First version was based on: <a href='http://www.agilecarousel.com'>Agile Carousel</a> (now there's hardly no original code left)</p>
       </div>
 
       <div class="box">
           <h2> Auto adjust carousel </h2>
 
           <div class="info">
-            HTML before:
+			HTML:
             <div class="html_code">
                 &lt;div id="auto_adjust_carousel"&gt;<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;your content</br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/1.jpg" height="100%" /&gt; &lt;/div&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/2.jpg" height="100%" /&gt; &lt;/div&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/3.jpg" height="100%" /&gt; &lt;/div&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/4.jpg" height="100%" /&gt; &lt;/div&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/5.jpg" height="100%" /&gt; &lt;/div&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/6.jpg" height="100%" /&gt; &lt;/div&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/7.jpg" height="100%" /&gt; &lt;/div&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/8.jpg" height="100%" /&gt; &lt;/div&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/9.jpg" height="100%" /&gt; &lt;/div&gt;<br />
                 &lt;/div&gt;</br>
             </div>
-            Used javascript code:
+			JS:
             <div class="html_code">
                 $('#auto_adjust_carousel').agile_carousel({<br/>
                       &nbsp;&nbsp;&nbsp;&nbsp;number_slides_visible: "4",<br/>
@@ -91,13 +99,13 @@
           <h2> Basic carousel </h2>
 
           <div class="info">
-            HTML before:
+			HTML:
             <div class="html_code">
                 &lt;div id="basic_carousel"&gt;<br/>
                 &nbsp;&nbsp;&nbsp;&nbsp;your content</br>
                 &lt;/div&gt;</br>
             </div>
-            Used javascript code:
+            JS:
             <div class="html_code">
                 $('#basic_carousel').agile_carousel({ <br/>
                       &nbsp;&nbsp;&nbsp;&nbsp;transition_duration: 200,<br/>
