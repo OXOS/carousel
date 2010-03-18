@@ -51,6 +51,11 @@
     user-select: none;
 }
 
+.prev_button:hover, .next_button:hover{
+    background: #333;
+    color:orange;
+}
+
 .prev_button{
     position:absolute;
     top:-1px;
