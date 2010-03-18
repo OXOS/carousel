@@ -138,18 +138,10 @@
 
                 this_.items_count = this_.items_container.children().length;
 
-                // set width for items wrapper
-                var items_container_width = 0;
-                this_.items_container.children().each(function(i,el){
-                    items_container_width += $(el).width();
-                });
-                this_.items_container.css("width", items_container_width+"px");
-
                 setup_items();
             };
                                                 
             this_.skip = function(direction) {
-
                 var wrapper_width = this_.items_container.width();
                 var item_width = Math.floor(this_.items_container.parent().width() / this_.defaults.number_slides_visible);
                 var offset = this_.defaults.scroll * item_width;
@@ -170,33 +162,13 @@
             };
 
             setup_items = function(){
-                slide_height = this_.items_container.parent().height()-2;
-                half_slide_height_raw = slide_height / 2;
-                half_slide_height = parseFloat(half_slide_height_raw);
-                slide_holder_width = this_.carousel_wrapper.width();
-                slide_holder_height = this_.carousel_wrapper.height();
-                slide_holder_inner_width = this_.items_container.parent().width();
-                slide_holder_inner_height = this_.items_container.parent().height();
-                slide_holder_inner_width_px = slide_holder_inner_width + 'px';
-                slide_holder_inner_height_px = slide_holder_inner_height + 'px';
-
-                width_per_slide = slide_holder_inner_width / this_.defaults.number_slides_visible;
-                width_per_slide = Math.floor(width_per_slide);
-                all_slides_width_raw = this_.items_count * width_per_slide;
-                all_slides_width_raw = Math.floor(all_slides_width_raw);
-                all_slides_width = all_slides_width_raw + 'px';
-
-                num_slides_vis = parseFloat(this_.defaults.number_slides_visible);
+                var wrapper_width = this_.items_container.width();
+                var item_width = Math.floor(this_.items_container.parent().width() / this_.defaults.number_slides_visible);
+                var all_slides_width = Math.floor(this_.items_count * item_width);
 
                 // set styles for items and wrappers
-                this_.items_container.children().css("width", width_per_slide+"px");
+                this_.items_container.children().css("width", item_width+"px");
                 this_.items_container.children().addClass("slide");
-
-                for (i = 0; i < this_.items_count; i++) {
-                    var the_slide = this_.items_container.children()[i];
-                    var x_pos = ((width_per_slide) * i)+2;
-                    $(the_slide).css('left', x_pos);
-                }
                 this_.items_container.css('width', all_slides_width);
             };
 
