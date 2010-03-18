@@ -1,11 +1,11 @@
 (function($) { //create closure
-    $.fn.agile_carousel = function(options) {
+    $.fn.gcarousel = function(options) {
         return this.each(function() {
-            new $ac(this, options);
+            new $gc(this, options);
         });
     };
 
-    $.agile_carousel = function(element, options) {
+    $.gcarousel = function(element, options) {
 
         var this_ = this;
 
@@ -208,6 +208,6 @@
 
     } // function agile_carousel
 
-    var $ac = $.agile_carousel;
+    var $gc = $.gcarousel;
 
 })(jQuery);
