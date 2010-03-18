@@ -58,6 +58,7 @@
             <div class="col">
                 HTML:
                 <div class="html_code">
+                    <code>
                     &lt;div class="basic_carousel_wrapper"&gt;<br/>
                       &nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="basic_carousel"&gt;<br/>
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="basic_item"&gt; &lt;img src="images/1.jpg" width="100%" alt="image 1" /&gt; &lt;/div&gt;<br/>
@@ -76,16 +77,19 @@
                       &nbsp;&nbsp;&nbsp;&lt;div class="button button-next" onclick="basic_carousel.skip('next');"&gt; next &gt; &lt;/div&gt;<br/>
                       &nbsp;&nbsp;&nbsp;&lt;div style="clear:both;"&gt;<br/>
                     &lt;/div&gt;<br/>
+                    </code>
               </div>
             </div>
 
             <div class="col">
                 JS:
                 <div class="html_code">
+                    <code>
                     var basic_carousel = new $.gcarousel('#basic_carousel',{<br/>
                           &nbsp;&nbsp;&nbsp;transition_duration: 200,<br/>
                           &nbsp;&nbsp;&nbsp;shift: 200<br/>
                       });<br/>
+                    </code>
                 </div>
             </div>
             <div style="clear:both;"></div>
@@ -125,6 +129,7 @@
             <div class="col">
                 HTML:
                 <div class="html_code">
+                    <code>
                     &lt;div id="auto_adjust_carousel"&gt;<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/1.jpg" height="100%" /&gt; &lt;/div&gt;<br />
                                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/2.jpg" height="100%" /&gt; &lt;/div&gt;<br />
@@ -136,16 +141,19 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/8.jpg" height="100%" /&gt; &lt;/div&gt;<br />
                                     &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/9.jpg" height="100%" /&gt; &lt;/div&gt;<br />
                     &lt;/div&gt;<br />
+                    </code>
                 </div>
             </div>
             <div class="col">
                 JS:
                 <div class="html_code">
+                    <code>
                     $('#auto_adjust_carousel').agile_carousel({<br/>
                           &nbsp;&nbsp;&nbsp;&nbsp;number_slides_visible: "4",<br/>
                           &nbsp;&nbsp;&nbsp;&nbsp;scroll: 3,<br/>
                           &nbsp;&nbsp;&nbsp;&nbsp;auto_adjust: true<br/>
                       });
+                     </code>
                 </div>
             </div>
             <div style="clear:both;"></div>
@@ -161,8 +169,6 @@
               <div class="item"> <img src="images/7.jpg" height="100%" alt="image 7" /> </div>
               <div class="item"> <img src="images/8.jpg" height="100%" alt="image 8" /> </div>
               <div class="item"> <img src="images/9.jpg" height="100%" alt="image 9" /> </div>
-              <div class="item"> <img src="images/9.jpg" height="100%" alt="image 10" /> </div>
-              <div class="item"> <img src="images/9.jpg" height="100%" alt="image 11" /> </div>
           </div>
 
       </div>
@@ -175,7 +181,7 @@
           });
 
       </script>
-     
+
   </body>
 
 </html>
