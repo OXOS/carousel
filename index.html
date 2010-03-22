@@ -17,8 +17,6 @@
         .box p{text-align:left; margin: 0 0 5px 20px;}
 
         .item{ height:190px;  background:#888; text-align:center; overflow:hidden;}
-	.basic_item{position:relative; height:190px; width:400px; overflow:hidden; background:#888; float:left; }
-	.basic_item img {width: 100%; }
         .info{width:90%; height:auto; text-align:left; padding:10px 5px 10px 0px; margin: 10px auto 10px auto; border-bottom: 1px dotted #555; border-top: 1px dotted #555;}
         .info .col{width:48%; float:left; margin-right:2%; }
         .html_code{background:#959595; padding:10px 20px; margin:5px 0 10px 0; color:black; font-size:11px; color:#444;  -moz-border-radius: 5px; -webkit-border-radius:5px; border-radius: 5px;}
@@ -30,7 +28,6 @@
         .basic_carousel_nvigator .button:hover{color:orange;}
         .basic_carousel_nvigator .button-prev{-moz-border-radius: 5px 0 0 5px; -webkit-border-top-left-radius:5px; -webkit-border-bottom-left-radius: 5px;}
         .basic_carousel_nvigator .button-next{-moz-border-radius: 0 5px 5px 0; -webkit-border-top-right-radius:5px; -webkit-border-bottom-right-radius: 5px;}
-        #basic_carousel{width:3220px; height:190px;}
     </style>
 
   </head>
@@ -62,17 +59,10 @@
 <code>
 <pre>
 &lt;div class="basic_carousel_wrapper"&gt;<br/>
-  &lt;div id="basic_carousel"&gt;<br/>
-    &lt;div class="basic_item"&gt;                      &lt;img src="images/1.jpg" width="100%"  alt="image 1" /&gt; &lt;/div&gt;<br/>
-    &lt;div class="basic_item" style="width:150px;"&gt; &lt;img src="images/2.jpg" height="100%" alt="image 2" /&gt; &lt;/div&gt;<br/>
-    &lt;div class="basic_item"&gt;                      &lt;img src="images/3.jpg" width="100%"  alt="image 3" /&gt; &lt;/div&gt;<br/>
-    &lt;div class="basic_item" style="width:170px;"&gt; &lt;img src="images/4.jpg" height="100%" alt="image 4" /&gt; &lt;/div&gt;<br/>
-    &lt;div class="basic_item"&gt;                      &lt;img src="images/5.jpg" width="100%"  alt="image 5" /&gt; &lt;/div&gt;<br/>
-    &lt;div class="basic_item" style="width:500px;"&gt; &lt;img src="images/6.jpg" width="100%"  alt="image 6" /&gt; &lt;/div&gt;<br/>
-    &lt;div class="basic_item"&gt;                      &lt;img src="images/7.jpg" width="100%"  alt="image 7" /&gt; &lt;/div&gt;<br/>
-    &lt;div class="basic_item"&gt;                      &lt;img src="images/8.jpg" width="100%"  alt="image 8" /&gt; &lt;/div&gt;<br/>
-    &lt;div class="basic_item"&gt;                      &lt;img src="images/9.jpg" width="100%"  alt="image 9" /&gt; &lt;/div&gt;<br/>
-  &lt;/div&gt;<br/>
+  &lt;div id="basic_carousel"&gt;
+      &lt;img src="images/panorama.jpg" alt="2" style="float: left"/&gt;
+      &lt;p&gt;Lorem ipsum dolor sit amet&lt;/p&gt;
+  &lt;/div&gt;
 &lt;/div&gt;<br/>
 &lt;div class="basic_carousel_nvigator"&gt;<br/>
   &lt;div class="button button-prev" onclick="basic_carousel.skip('prev');"&gt; &lt; prev &lt;/div&gt;<br/>
@@ -81,8 +71,7 @@
 &lt;/div&gt;<br/>
 </code>
 </pre>
-              </div>
-            </div>
+              </div> </div>
 
             <div class="col">
                 JS:
@@ -99,16 +88,9 @@
           </div>
 
           <div class="basic_carousel_wrapper">
-              <div id="basic_carousel">
-                  <div class="basic_item"> <img src="images/1.jpg" width="100%" alt="image 1" /> </div>
-                  <div class="basic_item" style="width:150px;"> <img src="images/2.jpg" height="100%" alt="image 2" /> </div>
-                  <div class="basic_item"> <img src="images/3.jpg" width="100%" alt="image 3" /> </div>
-                  <div class="basic_item" style="width:170px;"> <img src="images/4.jpg" height="100%" alt="image 4" /> </div>
-                  <div class="basic_item"> <img src="images/5.jpg" width="100%" alt="image 5" /> </div>
-                  <div class="basic_item" style="width:500px;"> <img src="images/6.jpg" width="100%" alt="image 6" /> </div>
-                  <div class="basic_item"> <img src="images/7.jpg" width="100%" alt="image 7" /> </div>
-                  <div class="basic_item"> <img src="images/8.jpg" width="100%" alt="image 8" /> </div>
-                  <div class="basic_item"> <img src="images/9.jpg" width="100%" alt="image 9" /> </div>
+              <div id="basic_carousel" style="width:1940px;">
+                  <img src="images/panorama.jpg" alt="2"/>
+		  <p style="position: absolute; left: 10px; top: 10px;">Lorem ipsum</p>
               </div>
           </div>
           <div class="basic_carousel_nvigator">
