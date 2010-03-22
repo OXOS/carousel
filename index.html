@@ -162,11 +162,11 @@
       </div>
 
       <script type="text/javascript">
-          $('#auto_adjust_carousel').gcarousel({
+      var aacar = new $.gcarousel( $('#auto_adjust_carousel'), {
               number_slides_visible: "4",
-              scroll: 3,
-              auto_adjust: true
-          });
+              scroll: 3
+	      });
+	aacar.auto_adjust_carousel();
 
       </script>
 

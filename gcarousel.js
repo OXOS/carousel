@@ -1,7 +1,7 @@
 (function($) { //create closure
     $.fn.gcarousel = function(options) {
         return this.each(function() {
-            new $gc(this, options);
+            new $.gcarousel(this, options);
         });
     };
 
@@ -20,12 +20,7 @@
         };
         $.extend(this.options, input_options);
 
-        initialize = function(){
-            carousel.items_container_width = carousel.items_container.width();
-
-            if (carousel.options.auto_adjust)
-                auto_adjust_carousel();
-        };
+        carousel.items_container_width = carousel.items_container.width();
 
         carousel.skip = function(direction) {
             if (!carousel.current_left) carousel.current_left = 0;
@@ -61,7 +56,7 @@
         };
 
         // auto adjust carousel constructor ------------------------------------
-        auto_adjust_carousel = function() {
+        carousel.auto_adjust_carousel = function() {
 
             add_wrappers = function(){
                 // add class to scrolled div
@@ -110,11 +105,6 @@
 
         } 
 
-        // constructor
-        initialize();
-
     } // function agile_carousel
-
-    var $gc = $.gcarousel;
 
 })(jQuery);
