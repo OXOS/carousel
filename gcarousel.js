@@ -1,11 +1,10 @@
-(function($) { //create closure
-    $.fn.gcarousel = function(options) {
+    jQuery.fn.gcarousel = function(options) {
         return this.each(function() {
-            new $.gcarousel(this, options);
+            new jQuery.gcarousel(this, options);
         });
     };
 
-    $.gcarousel = function(element, input_options) {
+    jQuery.gcarousel = function(element, input_options) {
 
 	this.initialize = function(element, input_options) {
         	this.items_container = $(element);
@@ -20,7 +19,7 @@
         	};
         	this.options.width = this.items_container.width();
 
-        	$.extend(this.options, input_options);
+        	jQuery.extend(this.options, input_options);
 
 	}
 
@@ -62,8 +61,8 @@
 
     } // function agile_carousel
 
-    $.auto_carousel = function(element, input_options) {
-    	proto = new $.gcarousel(element, input_options);
+    jQuery.auto_carousel = function(element, input_options) {
+    	proto = new jQuery.gcarousel(element, input_options);
 	//return proto;
 
 	acar = function() {
@@ -119,13 +118,3 @@
     	acar.prototype = proto;
 	return new acar;
     }
-
-})(jQuery);
-
-
-
-(function($) { //create closure
-
-
-
-})(jQuery);
