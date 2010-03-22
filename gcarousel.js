@@ -8,12 +8,7 @@
     $.gcarousel = function(element, input_options) {
 
         var carousel = this;
-
         carousel.items_container = $(element);
-        carousel.current_left = 0;
-        carousel.items_count = 0;
-        carousel.items_container_width = null;
-        carousel.item_width = null;
 
         carousel.options = {
             number_slides_visible: "1",
@@ -33,6 +28,8 @@
         };
 
         carousel.skip = function(direction) {
+            if (!carousel.current_left) carousel.current_left = 0;
+
             // calculate current_left
             if (direction == "next")
                 carousel.current_left -= carousel.options.shift;
@@ -48,8 +45,6 @@
 		carousel.current_left = - (pages_count-1) * carousel.options.shift;
             }
 
-	    console.log("current_left", carousel.current_left );
-            
             // animation
             carousel.carousel_transition(carousel.current_left);
         };
