@@ -1,0 +1,12 @@
+h2. pawkyCarousel
+
+Very early version. Aims at flexible architecture. Works in two modes:
+
+h3. Basic
+
+The carousel doesn't know about content structure. It merely moves a container inside a wrapper by a given offset until it reaches speciffic width limit. This allows a content with arbitrary structure and positioning, like one wide image that stretches throughout the carousel.
+
+h3. Auto-adjust
+
+The carousel goes through elements in the container and assigns their widths so that a given number of elements fits. Then it scrolls by a given number of items.
+
