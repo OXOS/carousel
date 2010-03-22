@@ -67,39 +67,44 @@
 
 	acar = function() {
         	// auto adjust carousel constructor ------------------------------------
-        	this.auto_adjust_carousel = function() {
 
-        	    //add_wrappers = function(){
-        	        // add class to scrolled div
-        	        this.items_container.addClass("row_of_slides");
+        	this.add_wrappers = function() {
+        	    // add class to scrolled div
+        	    this.items_container.addClass("row_of_slides");
 
-        	        // add wrapper 1
-        	        this.items_container.wrap('<div class="slide_holder_inner" />');
+        	    // add wrapper 1
+        	    this.items_container.wrap('<div class="slide_holder_inner" />');
 
-        	        // add wrapper 2
-        	        this.items_container.parent(".slide_holder_inner").wrap('<div class="slide_holder" />');
-        	        this.carousel_wrapper = this.items_container.parent(".slide_holder_inner").parent();
+        	    // add wrapper 2
+        	    this.items_container.parent(".slide_holder_inner").wrap('<div class="slide_holder" />');
+        	    this.carousel_wrapper = this.items_container.parent(".slide_holder_inner").parent();
 
-        	        // add prev/next buttons
-        	        this.carousel_wrapper.append('<div class="prev_button">&lt;</div>');
-        	        this.prev_button = this.carousel_wrapper.children(".prev_button");
+        	    // add prev/next buttons
+        	    this.carousel_wrapper.append('<div class="prev_button">&lt;</div>');
+        	    this.prev_button = this.carousel_wrapper.children(".prev_button");
 
-        	        this.carousel_wrapper.append('<div class="next_button">&gt;</div>');
-        	        this.next_button = this.carousel_wrapper.children(".next_button");
+        	    this.carousel_wrapper.append('<div class="next_button">&gt;</div>');
+        	    this.next_button = this.carousel_wrapper.children(".next_button");
 
-        	        this.items_count = this.items_container.children().length;                
-        	    //};
+        	    this.items_count = this.items_container.children().length;                
+        	};
 
+        	this.setup_items_and_wrappers = function(){
         	    this.item_width = Math.floor(this.items_container.parent().width() / this.options.number_slides_visible);
         	    this.options.width = Math.floor(this.items_count * this.item_width);
         	                                     
-        	    //setup_items_and_wrappers = function(){
-        	        this.items_container.css('width', this.options.width);
-        	        this.items_container.children().css("width", this.item_width+"px");
-        	        this.items_container.children().addClass("slide");
-        	    //};
+        	    this.items_container.css('width', this.options.width);
+        	    this.items_container.children().css("width", this.item_width+"px");
+        	    this.items_container.children().addClass("slide"); //};
 
         	    this.options.shift =  this.options.scroll * this.item_width;
+		}
+
+        	this.auto_adjust_carousel = function() {
+
+		    this.add_wrappers();
+
+        	    this.setup_items_and_wrappers();
 
 		    var carousel = this;
         	    // add events for buttons
