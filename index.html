@@ -5,10 +5,10 @@
     <title>pawkyCarousel Demo</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <link href="pawkyCarousel.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="pawkycarousel.css" media="screen" rel="stylesheet" type="text/css" />
 
     <script src="jquery1.4.1.min.js" type="text/javascript"></script>
-    <script src="pawkyCarousel.js" type="text/javascript"></script>
+    <script src="pawkycarousel.js" type="text/javascript"></script>
 
     
     <style type="text/css">   
@@ -162,11 +162,10 @@
       </div>
 
       <script type="text/javascript">
-      var aacar = new $.auto_carousel( $('#auto_adjust_carousel'), {
+      $('#auto_adjust_carousel').pawkyAutoCarousel({
               number_slides_visible: "4",
               scroll: 3
 	      });
-	aacar.auto_adjust_carousel();
 
       </script>
 
