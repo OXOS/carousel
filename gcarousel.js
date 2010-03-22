@@ -10,9 +10,6 @@
         var carousel = this;
 
         carousel.items_container = $(element);
-        carousel.carousel_wrapper = null;
-        carousel.next_button = null;
-        carousel.prev_button = null;                
         carousel.current_left = 0;
         carousel.items_count = 0;
         carousel.items_container_width = null;
@@ -44,10 +41,10 @@
 
             if (carousel.current_left + (carousel.items_container_width) <= 0) carousel.current_left = 0;
             if (carousel.current_left > 0){
-                var pages_count = Math.ceil(carousel.items_count / carousel.options.scroll);
+                var pages_count = carousel.items_container_width / carousel.options.shift;
                 var first_visible = (pages_count-1) * carousel.options.scroll;
-                var rest = carousel.items_count - first_visible
-                carousel.current_left = -(carousel.items_container_width - rest * carousel.item_width);
+                var remaining = carousel.items_count - first_visible
+                carousel.current_left = -(carousel.items_container_width - remaining * carousel.item_width);
             }
             
             // animation
