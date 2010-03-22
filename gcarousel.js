@@ -39,13 +39,16 @@
             if (direction == "prev")
                 carousel.current_left += carousel.options.shift;
 
-            if (carousel.current_left + (carousel.items_container_width) <= 0) carousel.current_left = 0;
+            if (carousel.current_left + (carousel.items_container_width) <= 0)
+		    carousel.current_left = 0;
+
+	    //reset to last page
             if (carousel.current_left > 0){
-                var pages_count = carousel.items_container_width / carousel.options.shift;
-                var first_visible = (pages_count-1) * carousel.options.scroll;
-                var remaining = carousel.items_count - first_visible
-                carousel.current_left = -(carousel.items_container_width - remaining * carousel.item_width);
+                var pages_count = Math.ceil( carousel.items_container_width / carousel.options.shift );
+		carousel.current_left = - (pages_count-1) * carousel.options.shift;
             }
+
+	    console.log("current_left", carousel.current_left );
             
             // animation
             carousel.carousel_transition(carousel.current_left);
