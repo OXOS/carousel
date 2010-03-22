@@ -30,10 +30,8 @@
 
         initialize = function(){
             this_.items_container.css("position","absolute");
-            this_.items_count = this_.items_container.children().length;
 
             this_.items_container_width = this_.items_container.width();
-            this_.item_width = this_.options.shift;
 
             if (this_.options.auto_adjust)
                 auto_adjust_carousel();
