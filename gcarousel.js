@@ -7,18 +7,18 @@
 
     $.gcarousel = function(element, input_options) {
 
-        var this_ = this;
+        var carousel = this;
 
-        this.items_container = $(element);
-        this.carousel_wrapper = null;
-        this.next_button = null;
-        this.prev_button = null;                
-        this.current_left = 0;
-        this.items_count = 0;
-        this.items_container_width = null;
-        this.item_width = null;
+        carousel.items_container = $(element);
+        carousel.carousel_wrapper = null;
+        carousel.next_button = null;
+        carousel.prev_button = null;                
+        carousel.current_left = 0;
+        carousel.items_count = 0;
+        carousel.items_container_width = null;
+        carousel.item_width = null;
 
-        this.options = {
+        carousel.options = {
             number_slides_visible: "1",
             transition_duration: 1000,
             transition_easing: "swing",
@@ -29,39 +29,39 @@
         $.extend(this.options, input_options);
 
         initialize = function(){
-            this_.items_container_width = this_.items_container.width();
+            carousel.items_container_width = carousel.items_container.width();
 
-            if (this_.options.auto_adjust)
+            if (carousel.options.auto_adjust)
                 auto_adjust_carousel();
         };
 
-        this.skip = function(direction) {
+        carousel.skip = function(direction) {
             // calculate current_left
             if (direction == "next")
-                this_.current_left -= this_.options.shift;
+                carousel.current_left -= carousel.options.shift;
             if (direction == "prev")
-                this_.current_left += this_.options.shift;
+                carousel.current_left += carousel.options.shift;
 
-            if (this_.current_left + (this_.items_container_width) <= 0) this_.current_left = 0;
-            if (this_.current_left > 0){
-                var pages_count = Math.ceil(this_.items_count / this_.options.scroll);
-                var first_visible = (pages_count-1) * this_.options.scroll;
-                var rest = this_.items_count - first_visible
-                this_.current_left = -(this_.items_container_width - rest * this_.item_width);
+            if (carousel.current_left + (carousel.items_container_width) <= 0) carousel.current_left = 0;
+            if (carousel.current_left > 0){
+                var pages_count = Math.ceil(carousel.items_count / carousel.options.scroll);
+                var first_visible = (pages_count-1) * carousel.options.scroll;
+                var rest = carousel.items_count - first_visible
+                carousel.current_left = -(carousel.items_container_width - rest * carousel.item_width);
             }
             
             // animation
-            this_.carousel_transition(this_.current_left);
+            carousel.carousel_transition(carousel.current_left);
         };
 
 
-        this.carousel_transition = function(position) {
-            this_.items_container.stop().animate({
+        carousel.carousel_transition = function(position) {
+            carousel.items_container.stop().animate({
                 "left": position
             },
             {
-                "duration": this_.options.transition_duration,
-                "easing": this_.options.transition_easing
+                "duration": carousel.options.transition_duration,
+                "easing": carousel.options.transition_easing
             });
         };
 
@@ -70,47 +70,47 @@
 
             add_wrappers = function(){
                 // add class to scrolled div
-                this_.items_container.addClass("row_of_slides");
+                carousel.items_container.addClass("row_of_slides");
 
                 // add wrapper 1
-                this_.items_container.wrap('<div class="slide_holder_inner" />');
+                carousel.items_container.wrap('<div class="slide_holder_inner" />');
 
                 // add wrapper 2
-                this_.items_container.parent(".slide_holder_inner").wrap('<div class="slide_holder" />');
-                this_.carousel_wrapper = this_.items_container.parent(".slide_holder_inner").parent();
+                carousel.items_container.parent(".slide_holder_inner").wrap('<div class="slide_holder" />');
+                carousel.carousel_wrapper = carousel.items_container.parent(".slide_holder_inner").parent();
 
                 // add prev/next buttons
-                this_.carousel_wrapper.append('<div class="prev_button">&lt;</div>');
-                this_.prev_button = this_.carousel_wrapper.children(".prev_button");
+                carousel.carousel_wrapper.append('<div class="prev_button">&lt;</div>');
+                carousel.prev_button = carousel.carousel_wrapper.children(".prev_button");
 
-                this_.carousel_wrapper.append('<div class="next_button">&gt;</div>');
-                this_.next_button = this_.carousel_wrapper.children(".next_button");
+                carousel.carousel_wrapper.append('<div class="next_button">&gt;</div>');
+                carousel.next_button = carousel.carousel_wrapper.children(".next_button");
 
-                this_.items_count = this_.items_container.children().length;                
+                carousel.items_count = carousel.items_container.children().length;                
             };
 
             setup_items_and_wrappers = function(){
-                this_.items_container.css('width', this_.items_container_width);
-                this_.items_container.children().css("width", this_.item_width+"px");
-                this_.items_container.children().addClass("slide");
+                carousel.items_container.css('width', carousel.items_container_width);
+                carousel.items_container.children().css("width", carousel.item_width+"px");
+                carousel.items_container.children().addClass("slide");
             };
 
             add_wrappers();
 
-            this_.item_width = Math.floor(this_.items_container.parent().width() / this_.options.number_slides_visible);
-            this_.items_container_width = Math.floor(this_.items_count * this_.item_width);
+            carousel.item_width = Math.floor(carousel.items_container.parent().width() / carousel.options.number_slides_visible);
+            carousel.items_container_width = Math.floor(carousel.items_count * carousel.item_width);
                                              
             setup_items_and_wrappers();
 
-            this_.options.shift =  this_.options.scroll * this_.item_width;
+            carousel.options.shift =  carousel.options.scroll * carousel.item_width;
 
             // add events for buttons
-            this_.next_button.click(function() {
-                this_.skip('next');
+            carousel.next_button.click(function() {
+                carousel.skip('next');
             });
 
-            this_.prev_button.click(function() {
-                this_.skip('prev');
+            carousel.prev_button.click(function() {
+                carousel.skip('prev');
             });
 
         } 
