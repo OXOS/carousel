@@ -13,11 +13,12 @@
     
     <style type="text/css">   
         body{background:#e7e0d0; margin:auto; padding:10px 0 10px 0; text-align:center; color:black; font-size:12px;}
-        .box{width:850px; height:auto; margin: 1px auto 0 auto; padding:20px 0 20px 0px; background:#999; -moz-border-radius: 5px; -webkit-border-radius:5px; border-radius: 5px;}
+        .box{width:980px; height:auto; margin: 1px auto 0 auto; padding:20px 0 20px 0px; background:#999; -moz-border-radius: 5px; -webkit-border-radius:5px; border-radius: 5px;}
         .box p{text-align:left; margin: 0 0 5px 20px;}
 
         .item{ height:190px;  background:#888; text-align:center; overflow:hidden;}
-        .basic_item{position:relative; height:190px; width:400px; overflow:hidden; background:#888; float:left; }
+	.basic_item{position:relative; height:190px; width:400px; overflow:hidden; background:#888; float:left; }
+	.basic_item img {width: 100%; }
         .info{width:90%; height:auto; text-align:left; padding:10px 5px 10px 0px; margin: 10px auto 10px auto; border-bottom: 1px dotted #555; border-top: 1px dotted #555;}
         .info .col{width:48%; float:left; margin-right:2%; }
         .html_code{background:#959595; padding:10px 20px; margin:5px 0 10px 0; color:black; font-size:11px; color:#444;  -moz-border-radius: 5px; -webkit-border-radius:5px; border-radius: 5px;}
@@ -58,26 +59,28 @@
             <div class="col">
                 HTML:
                 <div class="html_code">
-                    <code>
-                    &lt;div class="basic_carousel_wrapper"&gt;<br/>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&lt;div id="basic_carousel"&gt;<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="basic_item"&gt; &lt;img src="images/1.jpg" width="100%" alt="image 1" /&gt; &lt;/div&gt;<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="basic_item" style="width:150px;"&gt; &lt;img src="images/2.jpg" height="100%" alt="image 2" /&gt; &lt;/div&gt;<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="basic_item"&gt; &lt;img src="images/3.jpg" width="100%" alt="image 3" /&gt; &lt;/div&gt;<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="basic_item" style="width:170px;"&gt; &lt;img src="images/4.jpg" height="100%" alt="image 4" /&gt; &lt;/div&gt;<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="basic_item"&gt; &lt;img src="images/5.jpg" width="100%" alt="image 5" /&gt; &lt;/div&gt;<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="basic_item" style="width:500px;"&gt; &lt;img src="images/6.jpg" width="100%" alt="image 6" /&gt; &lt;/div&gt;<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="basic_item"&gt; &lt;img src="images/7.jpg" width="100%" alt="image 7" /&gt; &lt;/div&gt;<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="basic_item"&gt; &lt;img src="images/8.jpg" width="100%" alt="image 8" /&gt; &lt;/div&gt;<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="basic_item"&gt; &lt;img src="images/9.jpg" width="100%" alt="image 9" /&gt; &lt;/div&gt;<br/>
-                      &nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>
-                    &lt;/div&gt;<br/>
-                    &lt;div class="basic_carousel_nvigator"&gt;<br/>
-                      &nbsp;&nbsp;&nbsp;&lt;div class="button button-prev" onclick="basic_carousel.skip('prev');"&gt; &lt; prev &lt;/div&gt;<br/>
-                      &nbsp;&nbsp;&nbsp;&lt;div class="button button-next" onclick="basic_carousel.skip('next');"&gt; next &gt; &lt;/div&gt;<br/>
-                      &nbsp;&nbsp;&nbsp;&lt;div style="clear:both;"&gt;<br/>
-                    &lt;/div&gt;<br/>
-                    </code>
+<code>
+<pre>
+&lt;div class="basic_carousel_wrapper"&gt;<br/>
+  &lt;div id="basic_carousel"&gt;<br/>
+    &lt;div class="basic_item"&gt;                      &lt;img src="images/1.jpg" width="100%"  alt="image 1" /&gt; &lt;/div&gt;<br/>
+    &lt;div class="basic_item" style="width:150px;"&gt; &lt;img src="images/2.jpg" height="100%" alt="image 2" /&gt; &lt;/div&gt;<br/>
+    &lt;div class="basic_item"&gt;                      &lt;img src="images/3.jpg" width="100%"  alt="image 3" /&gt; &lt;/div&gt;<br/>
+    &lt;div class="basic_item" style="width:170px;"&gt; &lt;img src="images/4.jpg" height="100%" alt="image 4" /&gt; &lt;/div&gt;<br/>
+    &lt;div class="basic_item"&gt;                      &lt;img src="images/5.jpg" width="100%"  alt="image 5" /&gt; &lt;/div&gt;<br/>
+    &lt;div class="basic_item" style="width:500px;"&gt; &lt;img src="images/6.jpg" width="100%"  alt="image 6" /&gt; &lt;/div&gt;<br/>
+    &lt;div class="basic_item"&gt;                      &lt;img src="images/7.jpg" width="100%"  alt="image 7" /&gt; &lt;/div&gt;<br/>
+    &lt;div class="basic_item"&gt;                      &lt;img src="images/8.jpg" width="100%"  alt="image 8" /&gt; &lt;/div&gt;<br/>
+    &lt;div class="basic_item"&gt;                      &lt;img src="images/9.jpg" width="100%"  alt="image 9" /&gt; &lt;/div&gt;<br/>
+  &lt;/div&gt;<br/>
+&lt;/div&gt;<br/>
+&lt;div class="basic_carousel_nvigator"&gt;<br/>
+  &lt;div class="button button-prev" onclick="basic_carousel.skip('prev');"&gt; &lt; prev &lt;/div&gt;<br/>
+  &lt;div class="button button-next" onclick="basic_carousel.skip('next');"&gt; next &gt; &lt;/div&gt;<br/>
+  &lt;div style="clear:both;"&gt;<br/>
+&lt;/div&gt;<br/>
+</code>
+</pre>
               </div>
             </div>
 
@@ -128,21 +131,23 @@
           <div class="info">
             <div class="col">
                 HTML:
-                <div class="html_code">
-                    <code>
-                    &lt;div id="auto_adjust_carousel"&gt;<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/1.jpg" height="100%" /&gt; &lt;/div&gt;<br />
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/2.jpg" height="100%" /&gt; &lt;/div&gt;<br />
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/3.jpg" height="100%" /&gt; &lt;/div&gt;<br />
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/4.jpg" height="100%" /&gt; &lt;/div&gt;<br />
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/5.jpg" height="100%" /&gt; &lt;/div&gt;<br />
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/6.jpg" height="100%" /&gt; &lt;/div&gt;<br />
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/7.jpg" height="100%" /&gt; &lt;/div&gt;<br />
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/8.jpg" height="100%" /&gt; &lt;/div&gt;<br />
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="item"&gt; &lt;img src="images/9.jpg" height="100%" /&gt; &lt;/div&gt;<br />
-                    &lt;/div&gt;<br />
-                    </code>
-                </div>
+<div class="html_code">
+<pre>
+<code>
+&lt;div id="auto_adjust_carousel"&gt;<br/>
+  &lt;div class="item"&gt; &lt;img src="images/1.jpg" height="100%" /&gt; &lt;/div&gt;<br />
+  &lt;div class="item"&gt; &lt;img src="images/2.jpg" height="100%" /&gt; &lt;/div&gt;<br />
+  &lt;div class="item"&gt; &lt;img src="images/3.jpg" height="100%" /&gt; &lt;/div&gt;<br />
+  &lt;div class="item"&gt; &lt;img src="images/4.jpg" height="100%" /&gt; &lt;/div&gt;<br />
+  &lt;div class="item"&gt; &lt;img src="images/5.jpg" height="100%" /&gt; &lt;/div&gt;<br />
+  &lt;div class="item"&gt; &lt;img src="images/6.jpg" height="100%" /&gt; &lt;/div&gt;<br />
+  &lt;div class="item"&gt; &lt;img src="images/7.jpg" height="100%" /&gt; &lt;/div&gt;<br />
+  &lt;div class="item"&gt; &lt;img src="images/8.jpg" height="100%" /&gt; &lt;/div&gt;<br />
+  &lt;div class="item"&gt; &lt;img src="images/9.jpg" height="100%" /&gt; &lt;/div&gt;<br />
+&lt;/div&gt;<br />
+</code>
+</pre>
+</div>
             </div>
             <div class="col">
                 JS:
