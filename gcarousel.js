@@ -5,7 +5,7 @@
         });
     };
 
-    $.gcarousel = function(element, options) {
+    $.gcarousel = function(element, input_options) {
 
         var this_ = this;
 
@@ -18,7 +18,7 @@
         this.items_container_width = null;
         this.item_width = null;
 
-        defaults = {
+        this.options = {
             number_slides_visible: "1",
             transition_duration: 1000,
             transition_easing: "swing",
@@ -26,7 +26,7 @@
             auto_adjust: false,
             shift: 100
         };
-        this.options = $.extend(defaults, options);
+        $.extend(this.options, input_options);
 
         initialize = function(){
             this_.items_container.css("position","absolute");
