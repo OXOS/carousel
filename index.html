@@ -26,11 +26,11 @@
         .about{font-size: 11px;}
 	.basic_carousel{position:absolute;}
         .basic_carousel_wrapper{position:relative; width:800px; height:190px; overflow:hidden; margin:auto; border:2px solid #333; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
-        .basic_carousel_nvigator{position:relative; width:204px; margin:10px auto 0 auto;}
-        .basic_carousel_nvigator .button{width:100px; height:24px; background:#333; float:left; margin-left:2px; color:#bbb; text-align:center; padding-top:6px; cursor:pointer; -moz-user-select: none; -khtml-user-select: none; user-select: none; font-size:13px;}
-        .basic_carousel_nvigator .button:hover{color:orange;}
-        .basic_carousel_nvigator .button-prev{-moz-border-radius: 5px 0 0 5px; -webkit-border-top-left-radius:5px; -webkit-border-bottom-left-radius: 5px;}
-        .basic_carousel_nvigator .button-next{-moz-border-radius: 0 5px 5px 0; -webkit-border-top-right-radius:5px; -webkit-border-bottom-right-radius: 5px;}
+        .basic_carousel_navigator{position:relative; width:204px; margin:10px auto 0 auto;}
+        .basic_carousel_navigator .button{width:100px; height:24px; background:#333; float:left; margin-left:2px; color:#bbb; text-align:center; padding-top:6px; cursor:pointer; -moz-user-select: none; -khtml-user-select: none; user-select: none; font-size:13px;}
+        .basic_carousel_navigator .button:hover{color:orange;}
+        .basic_carousel_navigator .button-prev{-moz-border-radius: 5px 0 0 5px; -webkit-border-top-left-radius:5px; -webkit-border-bottom-left-radius: 5px;}
+        .basic_carousel_navigator .button-next{-moz-border-radius: 0 5px 5px 0; -webkit-border-top-right-radius:5px; -webkit-border-bottom-right-radius: 5px;}
     </style>
 
   </head>
@@ -67,7 +67,7 @@
       &lt;p&gt;Lorem ipsum dolor sit amet&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;<br/>
-&lt;div class="basic_carousel_nvigator"&gt;<br/>
+&lt;div class="basic_carousel_navigator"&gt;<br/>
   &lt;div class="button button-prev" onclick="basic_carousel.prev();"&gt; 
     &lt; prev
   &lt;/div&gt;
@@ -105,7 +105,7 @@ new $.pawkyCarousel('#basic_carousel',{
 		  <p style="position: absolute; left: 10px; top: 10px;">Lorem ipsum</p>
               </div>
           </div>
-          <div class="basic_carousel_nvigator">
+          <div class="basic_carousel_navigator">
             <div class="button button-prev" onclick="basic_carousel.prev();"> &lt; prev </div>
             <div class="button button-next" onclick="basic_carousel.next();"> next &gt; </div>
             <div style="clear:both;"></div>
