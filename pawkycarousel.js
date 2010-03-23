@@ -17,8 +17,12 @@ jQuery.fn.pawkyAutoCarousel = function(options) {
  */
 
 jQuery.pawkyCarousel = function(element, input_options) {
+	this.initialize(element, input_options);
+}
 
-	this.initialize = function(element, input_options) {
+jQuery.pawkyCarousel.prototype = {
+
+	initialize: function(element, input_options) {
 	
 			this.items_container = $(element);
 			this.position = 0;
@@ -30,9 +34,9 @@ jQuery.pawkyCarousel = function(element, input_options) {
 				width: this.items_container.width()
 			};
 			jQuery.extend(this.options, input_options);
-	}
+	},
 	
-	this.slide = function(vector) {
+	slide: function(vector) {
 		this.position += vector * this.options.shift;
 	
 		if (this.position > this.options.width)
@@ -46,9 +50,9 @@ jQuery.pawkyCarousel = function(element, input_options) {
 	
 		// animation
 		this.carousel_transition(this.position);
-	};
+	},
 	
-	this.carousel_transition = function(position) {
+	carousel_transition: function(position) {
 		this.items_container.stop().animate({
 			"left": - position
 		},
@@ -56,21 +60,17 @@ jQuery.pawkyCarousel = function(element, input_options) {
 			"duration": this.options.transition_duration,
 			"easing": this.options.transition_easing
 		});
-	};
+	},
 	
-	this.prev = function() {
+	prev: function() {
 		this.slide(-1);
-	}
+	},
 	
-	this.next = function() {
+	next: function() {
 		this.slide(1);
 	}
-	
-	
-	this.initialize(element, input_options);
+};
 
-
-}
 
 
 
