@@ -98,6 +98,8 @@ jQuery.pawkyAutoCarousel.prototype = jQuery.extend( {}, jQuery.pawkyCarousel.pro
 
 		this.add_wrappers_and_controls();
 		this.setup_items_and_wrappers();
+
+                this.options.shift =  this.options.scroll * this.item_width;
 	},
 
 	add_wrappers_and_controls: function() {
@@ -128,9 +130,7 @@ jQuery.pawkyAutoCarousel.prototype = jQuery.extend( {}, jQuery.pawkyCarousel.pro
 		this.options.width = Math.floor(this.items_count * this.item_width);
 										 
 		this.items_container.css('width', this.options.width);
-		this.items_container.children().css({width: this.item_width+"px", float: "left"});
-
-		this.options.shift =  this.options.scroll * this.item_width;
+		this.items_container.children().css({width: this.item_width+"px", float: "left"});		
 	}
 
 });
