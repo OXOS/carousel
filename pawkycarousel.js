@@ -17,66 +17,59 @@ jQuery.fn.pawkyAutoCarousel = function(options) {
  */
 
 jQuery.pawkyCarousel = function(element, input_options) {
-
-this.initialize = function(element, input_options) {
-		this.items_container = $(element);
-
-		this.options = {
-			transition_duration: 1000,
-			transition_easing: "swing",
-			shift: 100
-		};
-		this.options.width = this.items_container.width();
-
-		jQuery.extend(this.options, input_options);
-
+	this.initialize(element, input_options);
 }
 
-this.skip = function(direction) {
-	if (!this.current_left) this.current_left = 0;
+jQuery.pawkyCarousel.prototype = {
 
-	// calculate current_left
-	if (direction == "next")
-		this.current_left -= this.options.shift;
-	if (direction == "prev")
-		this.current_left += this.options.shift;
-
-	if (this.current_left + (this.options.width) <= 0)
-	this.current_left = 0;
-
-	//reset to last page
-	if (this.current_left > 0){
-		var pages_count = Math.ceil( this.options.width / this.options.shift );
-		this.current_left = - (pages_count-1) * this.options.shift;
-	}
-
-	// animation
-	this.carousel_transition(this.current_left);
-};
-
-this.prev = function() {
-		this.skip('prev');
-}
-
-this.next = function() {
-		this.skip('next');
-}
-
-
-this.carousel_transition = function(position) {
-	this.items_container.stop().animate({
-		"left": position
+	initialize: function(element, input_options) {
+	
+			this.items_container = $(element);
+			this.position = 0;
+	
+			this.options = {
+				transition_duration: 1000,
+				transition_easing: "swing",
+				shift: 100,
+				width: this.items_container.width()
+			};
+			jQuery.extend(this.options, input_options);
 	},
-	{
-		"duration": this.options.transition_duration,
-		"easing": this.options.transition_easing
-	});
+	
+	slide: function(vector) {
+		this.position += vector * this.options.shift;
+		if (this.position >= this.options.width)
+			this.position = 0;
+	
+		//reset to last page
+		if (this.position < 0){
+			var pages_count = Math.ceil( this.options.width / this.options.shift );
+			this.position = (pages_count-1) * this.options.shift;
+		}
+	
+		// animation
+		this.carousel_transition(this.position);
+	},
+	
+	carousel_transition: function(position) {
+		this.items_container.stop().animate({
+			"left": - position
+		},
+		{
+			"duration": this.options.transition_duration,
+			"easing": this.options.transition_easing
+		});
+	},
+	
+	prev: function() {
+		this.slide(-1);
+	},
+	
+	next: function() {
+		this.slide(1);
+	}
 };
 
-this.initialize(element, input_options);
-
-
-}
 
 
 
@@ -88,59 +81,57 @@ this.initialize(element, input_options);
  */
 
 jQuery.pawkyAutoCarousel = function(element, input_options) {
-	var options = {
-		number_slides_visible: "1",
-		scroll: 1
-	};
-	jQuery.extend(options, input_options);
+	this.initialize(element, input_options);
+}
 
-	proto = new jQuery.pawkyCarousel(element, options);
+jQuery.pawkyAutoCarousel.prototype = jQuery.extend( {}, jQuery.pawkyCarousel.prototype, {
 
-	acar = function() {
-
-		this.add_wrappers_and_controls = function() {
-			this.items_container.addClass("row_of_slides");
-
-			this.items_container.wrap('<div class="slide_holder_inner" />');
-
-			this.items_container.parent(".slide_holder_inner").wrap('<div class="slide_holder" />');
-			this.carousel_wrapper = this.items_container.parent(".slide_holder_inner").parent();
-
-			// add prev/next buttons
-			this.carousel_wrapper.append('<div class="prev_button">&lt;</div>');
-			this.prev_button = this.carousel_wrapper.children(".prev_button");
-
-			this.carousel_wrapper.append('<div class="next_button">&gt;</div>');
-			this.next_button = this.carousel_wrapper.children(".next_button");
-
-			this.items_count = this.items_container.children().length;				
-
-			// add events for buttons
-			var _this = this;
-			this.prev_button.click( function(){_this.prev();} );
-			this.next_button.click( function(){_this.next();} );
+	initialize: function(element, input_options) {
+		var default_options = {
+			number_slides_visible: "1",
+			scroll: 1
 		};
+		var options = jQuery.extend({}, default_options, input_options);
 
-		this.setup_items_and_wrappers = function(){
-			this.item_width = Math.floor(this.items_container.parent().width() / this.options.number_slides_visible);
-			this.options.width = Math.floor(this.items_count * this.item_width);
-											 
-			this.items_container.css('width', this.options.width);
-			this.items_container.children().css("width", this.item_width+"px");
-			this.items_container.children().addClass("slide");
+		//emulate: super(element,options)
+		jQuery.pawkyCarousel.prototype.initialize.call(this, element, options );
 
-			this.options.shift =  this.options.scroll * this.item_width;
-		}
+		this.add_wrappers_and_controls();
+		this.setup_items_and_wrappers();
+	},
 
-		this.auto_adjust_carousel = function() {
-			this.add_wrappers_and_controls();
-			this.setup_items_and_wrappers();
-		} 
+	add_wrappers_and_controls: function() {
+		this.items_container.addClass("row_of_slides");
+		
+		this.items_container.wrap('<div class="slide_holder_inner" />');
+		
+		this.items_container.parent(".slide_holder_inner").wrap('<div class="slide_holder" />');
+		this.carousel_wrapper = this.items_container.parent(".slide_holder_inner").parent();
+		
+		// add prev/next buttons
+		this.carousel_wrapper.append('<div class="prev_button">&lt;</div>');
+		this.prev_button = this.carousel_wrapper.children(".prev_button");
+		
+		this.carousel_wrapper.append('<div class="next_button">&gt;</div>');
+		this.next_button = this.carousel_wrapper.children(".next_button");
+		
+		this.items_count = this.items_container.children().length;				
+		
+		// add events for buttons
+		var _this = this;
+		this.prev_button.click( function(){_this.prev();} );
+		this.next_button.click( function(){_this.next();} );
+	},
 
-		this.auto_adjust_carousel();
+	setup_items_and_wrappers: function(){
+		this.item_width = Math.floor(this.items_container.parent().width() / this.options.number_slides_visible);
+		this.options.width = Math.floor(this.items_count * this.item_width);
+										 
+		this.items_container.css('width', this.options.width);
+		this.items_container.children().css("width", this.item_width+"px");
+		this.items_container.children().addClass("slide");
 
+		this.options.shift =  this.options.scroll * this.item_width;
 	}
 
-	acar.prototype = proto;
-	return new acar;
-}
+});

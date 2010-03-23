@@ -18,17 +18,19 @@
 
         .item{ height:190px;  background:#888; text-align:center; overflow:hidden;}
         .info{width:90%; height:auto; text-align:left; padding:10px 5px 10px 0px; margin: 10px auto 10px auto; border-bottom: 1px dotted #555; border-top: 1px dotted #555;}
-        .info .col{width:48%; float:left; margin-right:2%; }
+        .info .col-left, .info .col-right{float:left; margin-right:2%; }
+        .col-right{width:38%;}
+        .col-left{width:58%;}
         .html_code{background:#959595; padding:10px 20px; margin:5px 0 10px 0; color:black; font-size:11px; color:#444;  -moz-border-radius: 5px; -webkit-border-radius:5px; border-radius: 5px;}
         .header{background:none;}
         .about{font-size: 11px;}
 	.basic_carousel{position:absolute;}
         .basic_carousel_wrapper{position:relative; width:800px; height:190px; overflow:hidden; margin:auto; border:2px solid #333; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
-        .basic_carousel_nvigator{position:relative; width:204px; margin:10px auto 0 auto;}
-        .basic_carousel_nvigator .button{width:100px; height:24px; background:#333; float:left; margin-left:2px; color:#bbb; text-align:center; padding-top:6px; cursor:pointer; -moz-user-select: none; -khtml-user-select: none; user-select: none; font-size:13px;}
-        .basic_carousel_nvigator .button:hover{color:orange;}
-        .basic_carousel_nvigator .button-prev{-moz-border-radius: 5px 0 0 5px; -webkit-border-top-left-radius:5px; -webkit-border-bottom-left-radius: 5px;}
-        .basic_carousel_nvigator .button-next{-moz-border-radius: 0 5px 5px 0; -webkit-border-top-right-radius:5px; -webkit-border-bottom-right-radius: 5px;}
+        .basic_carousel_navigator{position:relative; width:204px; margin:10px auto 0 auto;}
+        .basic_carousel_navigator .button{width:100px; height:24px; background:#333; float:left; margin-left:2px; color:#bbb; text-align:center; padding-top:6px; cursor:pointer; -moz-user-select: none; -khtml-user-select: none; user-select: none; font-size:13px;}
+        .basic_carousel_navigator .button:hover{color:orange;}
+        .basic_carousel_navigator .button-prev{-moz-border-radius: 5px 0 0 5px; -webkit-border-top-left-radius:5px; -webkit-border-bottom-left-radius: 5px;}
+        .basic_carousel_navigator .button-next{-moz-border-radius: 0 5px 5px 0; -webkit-border-top-right-radius:5px; -webkit-border-bottom-right-radius: 5px;}
     </style>
 
   </head>
@@ -54,36 +56,45 @@
           <h2> Basic carousel </h2>
 
           <div class="info">
-            <div class="col">
+            <div class="col-left">
                 HTML:
                 <div class="html_code">
-<code>
 <pre>
+<code>
 &lt;div class="basic_carousel_wrapper"&gt;<br/>
   &lt;div id="basic_carousel"&gt;
       &lt;img src="images/panorama.jpg" alt="2" style="float: left"/&gt;
       &lt;p&gt;Lorem ipsum dolor sit amet&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;<br/>
-&lt;div class="basic_carousel_nvigator"&gt;<br/>
-  &lt;div class="button button-prev" onclick="basic_carousel.prev();"&gt; &lt; prev &lt;/div&gt;<br/>
-  &lt;div class="button button-next" onclick="basic_carousel.next();"&gt; next &gt; &lt;/div&gt;<br/>
+&lt;div class="basic_carousel_navigator"&gt;<br/>
+  &lt;div class="button button-prev" onclick="basic_carousel.prev();"&gt; 
+    &lt; prev
+  &lt;/div&gt;
+  
+  &lt;div class="button button-next" onclick="basic_carousel.next();"&gt;
+    next &gt;
+  &lt;/div&gt;
+  
   &lt;div style="clear:both;"&gt;<br/>
 &lt;/div&gt;<br/>
 </code>
 </pre>
               </div> </div>
 
-            <div class="col">
+            <div class="col-right">
                 JS:
-                <div class="html_code">
-                    <code>
-                    var basic_carousel = new $.pawkyCarousel('#basic_carousel',{<br/>
-                          &nbsp;&nbsp;&nbsp;transition_duration: 200,<br/>
-                          &nbsp;&nbsp;&nbsp;shift: 200<br/>
-                      });<br/>
-                    </code>
-                </div>
+<div class="html_code">
+<pre>
+<code>
+var basic_carousel =
+new $.pawkyCarousel('#basic_carousel',{
+      transition_duration: 200,
+      shift: 200
+  });<br/>
+</code>
+</pre>
+</div>
             </div>
             <div style="clear:both;"></div>
           </div>
@@ -94,7 +105,7 @@
 		  <p style="position: absolute; left: 10px; top: 10px;">Lorem ipsum</p>
               </div>
           </div>
-          <div class="basic_carousel_nvigator">
+          <div class="basic_carousel_navigator">
             <div class="button button-prev" onclick="basic_carousel.prev();"> &lt; prev </div>
             <div class="button button-next" onclick="basic_carousel.next();"> next &gt; </div>
             <div style="clear:both;"></div>
@@ -112,12 +123,12 @@
           <h2> Auto adjust carousel </h2>
 
           <div class="info">
-            <div class="col">
+            <div class="col-left">
                 HTML:
 <div class="html_code">
 <pre>
 <code>
-&lt;div id="auto_adjust_carousel"&gt;<br/>
+&lt;div id="auto_carousel"&gt;<br/>
   &lt;div class="item"&gt; &lt;img src="images/1.jpg" height="100%" /&gt; &lt;/div&gt;<br />
   &lt;div class="item"&gt; &lt;img src="images/2.jpg" height="100%" /&gt; &lt;/div&gt;<br />
   &lt;div class="item"&gt; &lt;img src="images/3.jpg" height="100%" /&gt; &lt;/div&gt;<br />
@@ -132,22 +143,23 @@
 </pre>
 </div>
             </div>
-            <div class="col">
+            <div class="col-right">
                 JS:
-                <div class="html_code">
-                    <code>
-                    $('#auto_adjust_carousel').agile_carousel({<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;number_slides_visible: "4",<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;scroll: 3,<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;auto_adjust: true<br/>
-                      });
-                     </code>
-                </div>
+<div class="html_code">
+<pre>
+<code>
+$('#auto_carousel').pawkyAutoCarousel({
+      number_slides_visible: "4",
+      scroll: 3
+  });
+ </code>
+</pre>
+</div>
             </div>
             <div style="clear:both;"></div>
           </div>
 
-          <div id="auto_adjust_carousel">
+          <div id="auto_carousel">
               <div class="item"> <img src="images/1.jpg" height="100%" alt="image 1" /> </div>
               <div class="item"> <img src="images/2.jpg" height="100%" alt="image 2" /> </div>
               <div class="item"> <img src="images/3.jpg" height="100%" alt="image 3" /> </div>
@@ -162,7 +174,7 @@
       </div>
 
       <script type="text/javascript">
-      $('#auto_adjust_carousel').pawkyAutoCarousel({
+      $('#auto_carousel').pawkyAutoCarousel({
               number_slides_visible: "4",
               scroll: 3
 	      });
