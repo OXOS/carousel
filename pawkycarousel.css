@@ -28,13 +28,6 @@
     position: absolute;
 }
 
-.slide_holder_inner .slide{
-    position: relative;
-    float:left;
-    margin:0px;
-    padding:0px;
-}
-
 .prev_button, .next_button{
     background:#222;
     height:125px;
