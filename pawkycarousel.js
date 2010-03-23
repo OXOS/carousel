@@ -21,7 +21,7 @@ jQuery.pawkyCarousel = function(element, input_options) {
 this.initialize = function(element, input_options) {
 
 		this.items_container = $(element);
-		this.current_left = 0;
+		this.position = 0;
 
 		this.options = {
 			transition_duration: 1000,
@@ -33,19 +33,19 @@ this.initialize = function(element, input_options) {
 }
 
 this.slide = function(vector) {
-	this.current_left -= vector * this.options.shift;
+	this.position -= vector * this.options.shift;
 
-	if (this.current_left + (this.options.width) <= 0)
-	this.current_left = 0;
+	if (this.position + (this.options.width) <= 0)
+	this.position = 0;
 
 	//reset to last page
-	if (this.current_left > 0){
+	if (this.position > 0){
 		var pages_count = Math.ceil( this.options.width / this.options.shift );
-		this.current_left = - (pages_count-1) * this.options.shift;
+		this.position = - (pages_count-1) * this.options.shift;
 	}
 
 	// animation
-	this.carousel_transition(this.current_left);
+	this.carousel_transition(this.position);
 };
 
 this.carousel_transition = function(position) {
