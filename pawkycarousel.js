@@ -38,8 +38,7 @@ jQuery.pawkyCarousel.prototype = {
 	
 	slide: function(vector) {
 		this.position += vector * this.options.shift;
-	
-		if (this.position > this.options.width)
+		if (this.position >= this.options.width)
 			this.position = 0;
 	
 		//reset to last page
