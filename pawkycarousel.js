@@ -33,15 +33,15 @@ this.initialize = function(element, input_options) {
 }
 
 this.slide = function(vector) {
-	this.position -= vector * this.options.shift;
+	this.position += vector * this.options.shift;
 
-	if (this.position + (this.options.width) <= 0)
-	this.position = 0;
+	if (this.position > this.options.width)
+		this.position = 0;
 
 	//reset to last page
-	if (this.position > 0){
+	if (this.position < 0){
 		var pages_count = Math.ceil( this.options.width / this.options.shift );
-		this.position = - (pages_count-1) * this.options.shift;
+		this.position = (pages_count-1) * this.options.shift;
 	}
 
 	// animation
@@ -50,7 +50,7 @@ this.slide = function(vector) {
 
 this.carousel_transition = function(position) {
 	this.items_container.stop().animate({
-		"left": position
+		"left": - position
 	},
 	{
 		"duration": this.options.transition_duration,
