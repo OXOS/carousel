@@ -32,7 +32,7 @@ this.initialize = function(element, input_options) {
 		jQuery.extend(this.options, input_options);
 }
 
-this.skip = function(vector) {
+this.slide = function(vector) {
 	this.current_left -= vector * this.options.shift;
 
 	if (this.current_left + (this.options.width) <= 0)
@@ -48,15 +48,6 @@ this.skip = function(vector) {
 	this.carousel_transition(this.current_left);
 };
 
-this.prev = function() {
-		this.skip(-1);
-}
-
-this.next = function() {
-		this.skip(1);
-}
-
-
 this.carousel_transition = function(position) {
 	this.items_container.stop().animate({
 		"left": position
@@ -66,6 +57,15 @@ this.carousel_transition = function(position) {
 		"easing": this.options.transition_easing
 	});
 };
+
+this.prev = function() {
+	this.slide(-1);
+}
+
+this.next = function() {
+	this.slide(1);
+}
+
 
 this.initialize(element, input_options);
 
