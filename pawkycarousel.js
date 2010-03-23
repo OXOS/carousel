@@ -19,27 +19,21 @@ jQuery.fn.pawkyAutoCarousel = function(options) {
 jQuery.pawkyCarousel = function(element, input_options) {
 
 this.initialize = function(element, input_options) {
+
 		this.items_container = $(element);
+		this.current_left = 0;
 
 		this.options = {
 			transition_duration: 1000,
 			transition_easing: "swing",
-			shift: 100
+			shift: 100,
+			width: this.items_container.width()
 		};
-		this.options.width = this.items_container.width();
-
 		jQuery.extend(this.options, input_options);
-
 }
 
-this.skip = function(direction) {
-	if (!this.current_left) this.current_left = 0;
-
-	// calculate current_left
-	if (direction == "next")
-		this.current_left -= this.options.shift;
-	if (direction == "prev")
-		this.current_left += this.options.shift;
+this.skip = function(vector) {
+	this.current_left -= vector * this.options.shift;
 
 	if (this.current_left + (this.options.width) <= 0)
 	this.current_left = 0;
@@ -55,11 +49,11 @@ this.skip = function(direction) {
 };
 
 this.prev = function() {
-		this.skip('prev');
+		this.skip(-1);
 }
 
 this.next = function() {
-		this.skip('next');
+		this.skip(1);
 }
 
 
